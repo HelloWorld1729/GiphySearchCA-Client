@@ -1,0 +1,39 @@
+<div align="left">
+    
+
+  <form class="form-inline" #searchForm="ngForm" (ngSubmit)="processSearch()">
+    <div class="container">
+    <table>
+      <tr>
+        <td>
+            <label>Username:</label>
+        </td>
+        <td>
+            <input class="form-control" type="text" name="username" 
+            placeholder="Please enter your name" required ngModel><br><br>
+        </td>
+      </tr>
+      <tr>
+        <td><label>Search:</label></td>
+        <td><input class="form-control" type="text" name="query" 
+          placeholder="Search keyword" required ngModel><br><br></td>
+      </tr>
+      <tr>
+        <td><label>No of images:</label></td>
+        <td>
+            <input class="form-control" type="text" name="result" 
+            placeholder="Enter image limit" required ngModel><br><br></td>
+      </tr>
+    </table>
+    <button class ="btn btn-primary" type="submit">
+      Search
+    </button>
+  </div>
+  </form>
+  <div *ngIf="basket.length <= 0">
+  </div>
+  <div *ngIf="basket.length > 0">
+    <app-searchresult [imageSource]="basket">
+    </app-searchresult>
+  </div>
+  </div>

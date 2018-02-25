@@ -1,0 +1,31 @@
+  <!-- pager -->
+   <div ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+    <button [ngClass]="{disabled:pager.currentPage === 1}" 
+        (click)="setPage(1)">First
+    </button>
+    <button [ngClass]="{disabled:pager.currentPage === 1}"
+        (click)="setPage(pager.currentPage - 1)">Previous
+    </button>
+    <button *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}"
+        (click)="setPage(page)">{{page}}
+    </button>
+    <button [ngClass]="{disabled:pager.currentPage === pager.totalPages}"
+        (click)="setPage(pager.currentPage + 1)">Next
+    </button>
+    <button [ngClass]="{disabled:pager.currentPage === pager.totalPages}"
+        (click)="setPage(pager.totalPages)">Last
+    </button>
+  </div>
+
+<h4>
+
+  <span class="col-md-3" *ngFor="let i of pagedItems">
+      <img src="{{ i.image }}" width="100%"  class="img-responsive"><br/>
+      <span *ngIf="i.title != nil">
+        <h6>{{ i.title }}</h6>   
+      
+      <button class="btn btn-primary" id="btnSave" type="submit" #btnSave (click)="onClicked(i)" [disabled]="i.disable" >Save</button>
+    </span>
+    </span>
+
+</h4>

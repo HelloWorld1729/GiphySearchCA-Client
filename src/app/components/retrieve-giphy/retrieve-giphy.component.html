@@ -1,0 +1,14 @@
+<form class="form-inline" #searchForm="ngForm" (ngSubmit)="retrieve()">
+  <label>Username:</label>  
+  <input class="form-control" type="text" name="username"
+    placeholder="Please enter your name..." required ngModel>
+
+    <button class="btn btn-primary" type="submit" [disabled]="searchForm.invalid">
+      Retrive Giphy
+    </button>
+  
+  </form>
+  <div *ngIf="basket.length > 0">
+    <app-searchresult [imageSource]="basket">
+    </app-searchresult>
+  </div>
